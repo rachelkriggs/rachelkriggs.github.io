@@ -1,8 +1,12 @@
-- name: Twitter
-  link: 'https://twitter.com/rachelkriggs'
-  social_icon: Twitter
-  new_window: true
 - name: Github
   link: 'https://github.com/rachelkriggs'
   social_icon: Github
+  new_window: true
+- name: LinkedIn
+  link: 'https://www.linkedin.com/in/rachel-k-riggs/'
+  social_icon: LinkedIn
+  new_window: true
+- name: Twitter
+  link: 'https://twitter.com/rachelkriggs'
+  social_icon: Twitter
   new_window: true
