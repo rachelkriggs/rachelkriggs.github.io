@@ -106,8 +106,8 @@ vehicles_incentives %>%
   geom_bar(stat = "identity", fill="#4daf4a") +
   coord_flip() +
   ggtitle("mpg or mpg-e") +
-  labs(x = "miles per gallon", 
-       y = "make and model") +
+  labs(x = "make and model",
+       y = "miles per gallon") +
   theme_bw()
 ```
 
@@ -127,8 +127,8 @@ vehicles_range %>%
   geom_bar(stat = "identity", fill="#4daf4a") +
   coord_flip() +
   ggtitle("Range on One Charge or One Tank of Gas") +
-  labs(x = "range (miles)", 
-       y = "make and model") +
+  labs(x = "make and model",
+       y = "range (miles)") +
   theme_bw()
 ```
 
@@ -146,8 +146,8 @@ scores_final %>%
   geom_bar(stat = "identity", fill="#4daf4a") +
   coord_flip() +
   ggtitle("Vehicles Ranked with Final Scores") +
-  labs(x = "score", 
-       y = "make and model") +
+  labs(x = "make and model",
+       y = "score") +
   theme_bw()
 ```
 
