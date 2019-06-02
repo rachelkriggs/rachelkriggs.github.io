@@ -37,7 +37,7 @@ scores <- scores %>%
 
 ### plot the vehicle prices
 
-```{r prices, warning=FALSE, fig.width=10}
+```{r prices, warning=FALSE}
 vehicles %>% 
   ggplot(aes(x = make_model, y = purchase_price_CAD)) +
   geom_bar(stat = "identity", fill="#4daf4a") +
@@ -64,7 +64,7 @@ vehicles_incentives <- vehicles_drop %>%
 
 ### plot the vehicle prices after incentives
 
-```{r price incentives, fig.width=10}
+```{r price incentives}
 vehicles_incentives %>% 
   ggplot(aes(x = reorder(make_model, purchase_price_CAD), 
              y = purchase_price_CAD)) +
@@ -79,7 +79,7 @@ vehicles_incentives %>%
 
 ### plot mpg
 
-```{r mpg, fig.width=10}
+```{r mpg}
 vehicles_incentives %>% 
   ggplot(aes(x = reorder(make_model, mpg_or_mpge_equivalent), 
              y = mpg_or_mpge_equivalent)) +
@@ -93,7 +93,7 @@ vehicles_incentives %>%
 
 ### plot range
 
-```{r range, warning=FALSE, fig.width=10}
+```{r range, warning=FALSE}
 # convert km to miles and reorder columns
 vehicles_range <- vehicles_incentives %>% 
   mutate(range_miles = round((range_km * 0.621371), 0) ) %>% 
@@ -112,7 +112,7 @@ vehicles_range %>%
 
 ### plot final scores
 
-```{r scores, fig.width=10}
+```{r scores}
 # calculate final scores
 scores_final <- scores %>% 
   mutate(final_score = (price_score + (2 * mpg_score) + range_score + size_score + aesthetic_score) / 5)

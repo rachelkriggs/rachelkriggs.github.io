@@ -37,9 +37,7 @@ There's still a fair amount of variety here, so I'm going to need to quantify wh
 
 Price is certainly one of the most driving factors in my decision (pun intended). No matter how amazing a car might be in every way I'd like it to be, if it's insanely expensive, I won't buy it. On the other hand, I hope to have a fancy new job as a Data Scientist by the time I buy this car, so while I will have a budget to adhere to, I also will allow myself the luxury of buying a new car. Thus I am only considering prices of new vehicles, not used.
 
-![](/_projects/buying_a_car/cars_files/figure-gfm/prices-1.png)
-
-![](https://github.com/rachelkriggs/rachelkriggs.github.io/blob/master/_projects/buying_a_car/cars_files/figure-gfm/prices-1.png)
+![center](/figs/2018-09-29-buying-a-car/prices-1.png)
 
 As I mentioned, the Mini Electric isn't actually available yet, so perhaps I shouldn't keep it in the mix at this time. And the Tesla Model S is far more expensive than anything else in my list, so it's got to go as well.
 
@@ -49,9 +47,7 @@ As I mentioned, the Mini Electric isn't actually available yet, so perhaps I sho
 
 The British Columbia Clean Energy Vehicle Program offers pricing incentives for some, but not all, vehicles. Taking these incentives into consideration gives me more relevant information on how much each car will actually cost. Also, it will be nicer to view the cars with the prices ordered.
 
-![](/_projects/buying_a_car/cars_files/figure-gfm/price incentives-1.png)
-
-![](https://github.com/rachelkriggs/rachelkriggs.github.io/blob/master/_projects/buying_a_car/cars_files/figure-gfm/price%20incentives-1.png)
+![center](/figs/2018-09-29-buying-a-car/price incentives-1.png)
 
 Prices range from $22,350 for the Toyota Prius c to $43,750 for the BMW i3. I'm a little surprised that both the BMW and the Fiat 500e are more than the Tesla 3.
 
@@ -59,9 +55,7 @@ Prices range from $22,350 for the Toyota Prius c to $43,750 for the BMW i3. I'm 
 
 Fuel efficiency matters to the planet *and* to my wallet. Gas prices in BC have soared in the last year, so getting good mileage is definitely a significant objective. But how does a person compare an electric vehicle to a hybrid or a regular fuel engine? Isn't this sort of like comparing apples and horses? As it turns out there is a miles per gallon equivalent used by the EPA, which is "a measure of the average distance traveled per unit of energy consumed" according to [Wikipedia.](https://en.wikipedia.org/wiki/Miles_per_gallon_gasoline_equivalent)
 
-![](/_projects/buying_a_car/cars_files/figure-gfm/mpg-1.png)
-
-![](https://github.com/rachelkriggs/rachelkriggs.github.io/blob/master/_projects/buying_a_car/cars_files/figure-gfm/mpg-1.png)
+![center](/figs/2018-09-29-buying-a-car/mpg-1.png))
 
 Clearly everything above 100mpg blows all the others away, except maybe the Audi. It's unsurprising that the regular fuel cars (the non-electric Fiat and the Mini) are at the bottom of this range, but remarkable by how much, and also that two of the three Priuses on my list are also so low here.
 
@@ -69,9 +63,7 @@ Clearly everything above 100mpg blows all the others away, except maybe the Audi
 
 I've never owned an electric car before, and I know I'm not alone in being concerned with how far can the car go on a charge (if it's a fully electric), or on a charge and one tank of gas (if it's a plug-in hybrid). This element is moot for the two fuel cars on my list, but worth exploring for all the rest.
 
-![](/_projects/buying_a_car/cars_files/figure-gfm/range-1.png)
-
-![](https://github.com/rachelkriggs/rachelkriggs.github.io/blob/master/_projects/buying_a_car/cars_files/figure-gfm/range-1.png)
+![center](/figs/2018-09-29-buying-a-car/range-1.png))
 
 It's notable that the smart fortwo, while it got a high mpg-e rating, can't go very far between charges. Most of my commuting is done within Vancouver, but I certainly want the option to take a road trip. There's quite a range here, and I won't seriously consider buying any vehicle that can't go at least 100 miles.
 
@@ -93,9 +85,7 @@ $$
 
 **The Results**
 
-![](/_projects/buying_a_car/cars_files/figure-gfm/scores-1.png)
-
-![](https://github.com/rachelkriggs/rachelkriggs.github.io/blob/master/_projects/buying_a_car/cars_files/figure-gfm/scores-1.png)
+![center](/figs/2018-09-29-buying-a-car/scores-1.png))
 
 The Toyota Prius Prime is the clear winner here. It's a little more than $30k, gets outstanding mileage and range, is compact and cute to boot. It's final score came in at 5.3 points, well ahead of the runner-up Hyundai IONIQ Electric Plus with 9.3 points. Prices may change in the future, but if I were to buy this car today, the Prius Prime is the best choice.
 
