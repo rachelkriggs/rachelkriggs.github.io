@@ -1,0 +1,22 @@
+make model,price score,mpg score,range score,size score,aesthetic score
+Audi A3 Sportback e-tron,17,14,9,6.5,20
+BMW i3,21,9,16,6.5,4
+Chevrolet Bolt,18,5,12,21,9
+Chevrolet Volt,14,13,8,6.5,11.5
+Fiat 500e,20,8,19,6.5,2
+Fiat 500,2,21,20.5,6.5,2
+Ford Focus EV,16,12,17,6.5,17.5
+Honda Accord Hybrid,13,18,4,6.5,14.5
+Honda Clarity,15,10,10,16,17.5
+Honda Insight,7,17,6,16,14.5
+Hyundai IONIQ Electric,10,1,15,16,11.5
+Hyundai IONIQ Electric Plus,8,4,3,16,11.5
+Hyundai IONIQ Hybrid,4,15,2,16,11.5
+Mini Cooper 5-door,5,20,20.5,6.5,2
+Nissan LEAF,12,7,13,16,8
+smart fortwo,3,11,18,20,17.5
+Tesla Model 3,19,6,11,16,17.5
+Toyota Prius,6,16,5,6.5,6
+Toyota Prius c,1,19,7,6.5,6
+Toyota Prius Prime,9,2,1,6.5,6
+Volkswagen e-Golf,11,3,14,6.5,21

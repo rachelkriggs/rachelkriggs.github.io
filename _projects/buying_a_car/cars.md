@@ -1,0 +1,154 @@
+A Data Science Approach to Buying a Car
+================
+
+``` r
+# load the data
+vehicles <- read_csv("data/Rachel_vehicles2.csv")
+```
+
+    ## Parsed with column specification:
+    ## cols(
+    ##   `make model` = col_character(),
+    ##   `purchase price CAD` = col_integer(),
+    ##   `engine type` = col_character(),
+    ##   `range km` = col_integer(),
+    ##   `mpg or mpg-e equivalent` = col_integer(),
+    ##   `vehicle class` = col_character(),
+    ##   `BC incentives` = col_integer()
+    ## )
+
+``` r
+scores <- read_csv("data/scores.csv")
+```
+
+    ## Parsed with column specification:
+    ## cols(
+    ##   `make model` = col_character(),
+    ##   `price score` = col_integer(),
+    ##   `mpg score` = col_integer(),
+    ##   `range score` = col_double(),
+    ##   `size score` = col_double(),
+    ##   `aesthetic score` = col_double()
+    ## )
+
+``` r
+# rename variables so they are easier to work with (no spaces)
+vehicles <- vehicles %>% 
+  rename(make_model = "make model",
+         purchase_price_CAD = "purchase price CAD",
+         engine_type = "engine type",
+         range_km = "range km",
+         mpg_or_mpge_equivalent = "mpg or mpg-e equivalent",
+         vehicle_class = "vehicle class",
+         BC_incentives = "BC incentives")
+
+scores <- scores %>% 
+  rename(make_model = "make model",
+         price_score = "price score",
+         mpg_score = "mpg score",
+         range_score = "range score",
+         size_score = "size score",
+         aesthetic_score = "aesthetic score")
+```
+
+### plot the vehicle prices
+
+``` r
+vehicles %>% 
+  ggplot(aes(x = make_model, y = purchase_price_CAD)) +
+  geom_bar(stat = "identity", fill="#4daf4a") +
+  coord_flip() +
+  scale_y_continuous(expand = c(.1, 0), labels = scales::dollar) +
+  ggtitle("Car Prices") +
+  labs(x = "make and model",
+       y = "price (Canadian dollars)") +
+  theme_bw()
+```
+
+![](cars_files/figure-gfm/prices-1.png)<!-- -->
+
+### compute new prices after taking incentives into consideration
+
+``` r
+# get rid of mini electric and tesla s
+vehicles_drop <- vehicles %>% 
+  filter(make_model != "Mini Electric" & make_model != "Tesla Model S")
+
+# calculate price after incentives and reorder columns
+vehicles_incentives <- vehicles_drop %>%
+  mutate(price_after_incentives = purchase_price_CAD - BC_incentives) %>% 
+  select(make_model, purchase_price_CAD, price_after_incentives, everything())
+```
+
+### plot the vehicle prices after incentives
+
+``` r
+vehicles_incentives %>% 
+  ggplot(aes(x = reorder(make_model, purchase_price_CAD), 
+             y = purchase_price_CAD)) +
+  geom_bar(stat = "identity", fill="#4daf4a") +
+  coord_flip() +
+  scale_y_continuous(labels = scales::dollar) +
+  ggtitle("Prices After Incentives") +
+  labs(x = "make and model",
+       y = "price (Canadian dollars)") +
+  theme_bw()
+```
+
+![](cars_files/figure-gfm/price%20incentives-1.png)<!-- -->
+
+### plot mpg
+
+``` r
+vehicles_incentives %>% 
+  ggplot(aes(x = reorder(make_model, mpg_or_mpge_equivalent), 
+             y = mpg_or_mpge_equivalent)) +
+  geom_bar(stat = "identity", fill="#4daf4a") +
+  coord_flip() +
+  ggtitle("mpg or mpg-e") +
+  labs(x = "miles per gallon", 
+       y = "make and model") +
+  theme_bw()
+```
+
+![](cars_files/figure-gfm/mpg-1.png)<!-- -->
+
+### plot range
+
+``` r
+# convert km to miles and reorder columns
+vehicles_range <- vehicles_incentives %>% 
+  mutate(range_miles = round((range_km * 0.621371), 0) ) %>% 
+  select(make_model, purchase_price_CAD, price_after_incentives, range_km, 
+         range_miles, everything())
+
+vehicles_range %>% 
+  ggplot(aes(x = reorder(make_model, range_miles), y = range_miles)) +
+  geom_bar(stat = "identity", fill="#4daf4a") +
+  coord_flip() +
+  ggtitle("Range on One Charge or One Tank of Gas") +
+  labs(x = "range (miles)", 
+       y = "make and model") +
+  theme_bw()
+```
+
+![](cars_files/figure-gfm/range-1.png)<!-- -->
+
+### plot final scores
+
+``` r
+# calculate final scores
+scores_final <- scores %>% 
+  mutate(final_score = (price_score + (2 * mpg_score) + range_score + size_score + aesthetic_score) / 5)
+
+scores_final %>% 
+  ggplot(aes(x = reorder(make_model, -final_score), y = final_score)) +
+  geom_bar(stat = "identity", fill="#4daf4a") +
+  coord_flip() +
+  ggtitle("Vehicles Ranked with Final Scores") +
+  labs(x = "score", 
+       y = "make and model") +
+  theme_bw()
+```
+
+![](cars_files/figure-gfm/scores-1.png)<!-- -->

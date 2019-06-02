@@ -1,0 +1,24 @@
+make model,purchase price CAD,engine type,range km,mpg or mpg-e equivalent,vehicle class,BC incentives
+Audi A3 Sportback e-tron,40900,plug-in hybrid,612,83,compact,2500
+BMW i3,48750,electric,200,112,subcompact,5000
+Chevrolet Bolt,44400,electric,383,119,small station wagon,5000
+Chevrolet Volt,39095,plug-in hybrid,676,106,compact,5000
+Fiat 500e,43000,electric,135,112,city car,0
+Fiat 500,22495,fuel,,30,city car,0
+Ford Focus EV,42103,electric,185,107,compact,5000
+Honda Accord Hybrid,33090,hybrid,1000,47,compact,0
+Honda Clarity,39900,plug-in hybrid,550,110,mid-size,5000
+Honda Insight,27990,hybrid,790,52,mid-size,0
+Hyundai IONIQ Electric,35649,electric,200,136,mid-size,5000
+Hyundai IONIQ Electric Plus,31999,plug-in hybrid,1000,119,mid-size,2500
+Hyundai IONIQ Hybrid,24299,hybrid,1000,58,mid-size,0
+Mini Cooper 5-door,24390,fuel,,32,supermini,0
+Mini Electric,,electric,190,,supermini,0
+Nissan LEAF,36398,electric,242,112,mid-size,5000
+smart fortwo,29050,electric,155,108,two-seater,5000
+Tesla Model 3,45600,electric,466,116,mid-size,5000
+Tesla Model S,95350,electric,539,98,full-size,0
+Toyota Prius,27650,hybrid,980,56,compact,0
+Toyota Prius c,22350,hybrid,735,46,subcompact,0
+Toyota Prius Prime,32990,plug-in hybrid,1035,133,compact,2500
+Volkswagen e-Golf,36355,electric,200,119,compact,5000
