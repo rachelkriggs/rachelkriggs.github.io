@@ -1,6 +1,7 @@
 ---
 layout: post
 title: A Data Science Approach to Buying a Car
+tags: [data-science, analysis]
 ---
 
 <img src="/images/car-fog2.jpg" class="fit image">
