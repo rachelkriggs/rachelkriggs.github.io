@@ -1,12 +1,19 @@
 ---
 layout: default
+title: About
+permalink: /about/
 ---
 
-<article class="page">
+<div id="main">
+  <article>
+    <header>
+      <h1 class="post-title">{{ page.title }}</h1>
+      <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+    </header>
 
-  <h1>{{ page.title }}</h1>
+    <section>
+      {{ content }}
+    </section>
 
-  <div class="entry">
-    {{ content }}
-  </div>
-</article>
+  </article>
+</div>

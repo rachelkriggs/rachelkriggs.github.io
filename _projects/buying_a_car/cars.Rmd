@@ -11,8 +11,9 @@ library(tidyverse)
 
 ```{r}
 # load the data
-vehicles <- read_csv("data/Rachel_vehicles2.csv")
-scores <- read_csv("data/scores.csv")
+vehicles <- suppressMessages(read_csv("data/Rachel_vehicles2.csv"))
+scores <- suppressMessages(read_csv("data/scores.csv"))
+scores2 <- suppressMessages(read_csv("data/scores2.csv"))
 ```
 
 ```{r}
@@ -27,6 +28,14 @@ vehicles <- vehicles %>%
          BC_incentives = "BC incentives")
 
 scores <- scores %>% 
+  rename(make_model = "make model",
+         price_score = "price score",
+         mpg_score = "mpg score",
+         range_score = "range score",
+         size_score = "size score",
+         aesthetic_score = "aesthetic score")
+
+scores2 <- scores2 %>% 
   rename(make_model = "make model",
          price_score = "price score",
          mpg_score = "mpg score",
@@ -64,13 +73,13 @@ vehicles_incentives <- vehicles_drop %>%
 
 ### plot the vehicle prices after incentives
 
-```{r price incentives}
+```{r price-incentives}
 vehicles_incentives %>% 
-  ggplot(aes(x = reorder(make_model, purchase_price_CAD), 
+  ggplot(aes(x = reorder(make_model, desc(purchase_price_CAD)), 
              y = purchase_price_CAD)) +
   geom_bar(stat = "identity", fill="#4daf4a") +
   coord_flip() +
-  scale_y_continuous(labels = scales::dollar) +
+  scale_y_continuous(expand = c(.075, 0), labels = scales::dollar) +
   ggtitle("Prices After Incentives") +
   labs(x = "make and model",
        y = "price (Canadian dollars)") +
@@ -100,7 +109,9 @@ vehicles_range <- vehicles_incentives %>%
   select(make_model, purchase_price_CAD, price_after_incentives, range_km, 
          range_miles, everything())
 
+# remove NAs
 vehicles_range %>% 
+  filter(!is.na(range_miles)) %>% 
   ggplot(aes(x = reorder(make_model, range_miles), y = range_miles)) +
   geom_bar(stat = "identity", fill="#4daf4a") +
   coord_flip() +
@@ -110,11 +121,53 @@ vehicles_range %>%
   theme_bw()
 ```
 
+### tables
+for size and overall aesthetic scores
+
+```{r}
+length(unique(vehicles$vehicle_class))
+unique(vehicles$vehicle_class) %>% knitr::kable()
+
+# join vehicles and scores
+joined_data <- left_join(scores2, vehicles, by = "make_model")
+
+# size scores
+joined_data %>% 
+  select(make_model, vehicle_class, size_score) %>% 
+  arrange(size_score) %>% 
+  knitr::kable()
+```
+
+```{r}
+# aesthetic scores
+scores2 %>% 
+  select(make_model, aesthetic_score) %>% 
+  arrange(aesthetic_score) %>% 
+  knitr::kable()
+```
+
 ### plot final scores
+
+```{r scores old}
+# # calculate final scores
+# scores_final <- scores %>% 
+#   mutate(final_score = (price_score + (2 * mpg_score) + range_score + size_score + aesthetic_score) / 5)
+# 
+# scores_final %>% 
+#   ggplot(aes(x = reorder(make_model, -final_score), y = final_score)) +
+#   geom_bar(stat = "identity", fill="#4daf4a") +
+#   coord_flip() +
+#   ggtitle("Vehicles Ranked with Final Scores") +
+#   labs(x = "make and model",
+#        y = "score") +
+#   theme_bw()
+```
+
+## using modified scores
 
 ```{r scores}
 # calculate final scores
-scores_final <- scores %>% 
+scores_final <- scores2 %>% 
   mutate(final_score = (price_score + (2 * mpg_score) + range_score + size_score + aesthetic_score) / 5)
 
 scores_final %>% 
@@ -127,6 +180,21 @@ scores_final %>%
   theme_bw()
 ```
 
+```{r}
+scores_final %>% select(make_model, final_score) %>% arrange(final_score) %>% knitr::kable()
+
+prius_score <- scores_final %>% filter(make_model == "Toyota Prius Prime") %>% select(final_score)
+
+prius <- joined_data %>% 
+  filter(make_model == "Toyota Prius Prime") %>% 
+  select(make_model, vehicle_class, mpg_or_mpge_equivalent, purchase_price_CAD, BC_incentives) %>% 
+  mutate(price_after_incentives = purchase_price_CAD - BC_incentives) %>% 
+  select(-c(purchase_price_CAD, BC_incentives))
+
+prius$final_score <- prius_score$final_score
+
+prius %>% knitr::kable()
+```
 
 
 
