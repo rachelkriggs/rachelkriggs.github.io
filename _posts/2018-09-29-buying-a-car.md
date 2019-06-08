@@ -3,7 +3,7 @@ layout: post
 title: A Data Science Approach to Buying a Car
 ---
 
-<img src="/images/fulls/car-fog2.jpg" class="fit image">
+<img src="/images/car-fog2.jpg" class="fit image">
 
 Choosing a car is not a quick or easy decision. For me, some of the most important factors to consider are the vehicle's environmental impact, price, its size, and how much I like its design. Another aspect is that I like to drive vehicles on the smaller side (no trucks or SUVs for this girl). These considerations narrow my pool to a manageable depth of 23 different vehicles:
 
