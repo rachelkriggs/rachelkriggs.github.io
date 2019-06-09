@@ -8,7 +8,7 @@ tags: [r, rstudio, make, docker, data-science, analysis]
 
 Have you ever wondered where the cacao beans of your favourite chocolate bar came from, and whether that has an effect on how good it tastes?
 
-To investigate this further, myself and classmate [Carrie Cheung](https://github.com/carrieklc) needed some very delicious chocolate data -- we used [this chocolate bar ratings dataset from Kaggle](https://www.kaggle.com/rtatman/chocolate-bar-ratings), which contains ratings by chocolate experts on over 1,795 individual chocolate bars. The dataset includes additional information about the chocolate bars, including where the chocolate beans were grown, cocoa percentage, and bean variety.
+To investigate this further, myself and [MDS](https://masterdatascience.ubc.ca/) classmate [Carrie Cheung](https://github.com/carrieklc) needed some very delicious chocolate data -- we used [this chocolate bar ratings dataset from Kaggle](https://www.kaggle.com/rtatman/chocolate-bar-ratings), which contains ratings by chocolate experts on over 1,795 individual chocolate bars. The dataset includes additional information about the chocolate bars, including where the chocolate beans were grown, cocoa percentage, and bean variety.
 
 Since [Venezuela is one of the largest producers of the Criollo bean, which is considered a delicacy](https://en.wikipedia.org/wiki/Cocoa_bean), we set out to answer the following question using the chocolate bar ratings dataset:
 
