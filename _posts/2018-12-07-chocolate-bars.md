@@ -14,7 +14,7 @@ Since [Venezuela is one of the largest producers of the Criollo bean, which is c
 
 _**Do chocolate bars made from beans grown in Venezuela have a different average rating compared to beans grown elsewhere?**_
 
-All of the code used for this project can be found [in the project's Github repository](https://github.com/UBC-MDS/DSCI_522-Chocolate_Ratings_Analysis) and the analysis can be reproduced by following the instructions in the Readme file.
+The code for this project can be found [in the project's Github repository](https://github.com/UBC-MDS/DSCI_522-Chocolate_Ratings_Analysis) and the analysis can be reproduced by following the instructions in the Readme file.
 
 The tools we used to produce this analysis included RStudio, Make, and Docker.
 
