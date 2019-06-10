@@ -56,7 +56,7 @@ Note that in the plot, we excluded the following data:
 
 -   Cocoa bean origin regions which only had a single associated chocolate bar rating. This eliminates "one off" chocolate bars which only had a single rating, which keeps the plot above simple and readable. However, those rows were included in our statistical analysis.
 
--   Large cocoa bean origin regions - for example, beans labelled broadly as grown in "South America". Since we cannot idenfity what specific country or combination of countries these beans are from, we removed the associated chcoolate bars from both the above plot and our analysis.
+-   Large cocoa bean origin regions - for example, beans labelled broadly as grown in "South America". Since we cannot idenfity what specific country or combination of countries these beans are from, we removed the associated chocolate bars from both the above plot and our analysis.
 
 From the plot, we can see that Venezuela is in the upper half of average rating scores; however we cannot tell whether the mean for Venezuela is significantly different from this visualization.
 
