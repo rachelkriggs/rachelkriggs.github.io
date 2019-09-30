@@ -4,6 +4,8 @@ title: Arrival time survey analysis
 tags: [r, data-science, analysis, ubc, mds]
 ---
 
+<img src="/images/time.jpg" class="fit image">
+
 One of the courses in the sixth and final block of [coursework](https://ubc-mds.github.io/descriptions/) in the [MDS](https://masterdatascience.ubc.ca/) program is Experimentation and Causal Inference. In this class I was part of a small team who designed a survey to answer one specific and testable question.
 
 # Survey question
@@ -660,3 +662,5 @@ From our results we can see that there is a relationship between how far someone
 ------------------------------
 
 _Collaborators on this project include myself, [Ian Flores Siaca](https://ian-flores.github.io), [Akansha Vashisth](https://github.com/akanshaVashisth), and [Milos Milic](https://github.com/milicmil)._
+
+_Photo by [Andrik Langfield](https://unsplash.com/@andriklangfield?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/)_
