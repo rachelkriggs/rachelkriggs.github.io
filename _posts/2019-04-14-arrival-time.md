@@ -70,7 +70,7 @@ clean_survey_sep_days <- read_csv('https://raw.githubusercontent.com/UBC-MDS/sur
 
 # EDA
 
-```{r}
+``` r
 plot1 <- clean_survey_all_days %>%
   ggplot() +
   geom_histogram(aes(x=distance_km)) +
@@ -92,7 +92,7 @@ grid.arrange(plot1, plot2, ncol=2)
 
 We can see that the majority of students live within 15 kilometers of campus, and that the majority arrive within 30 minutes before and 30 minutes after the start of the lecture.
 
-```{r}
+``` r
 plot3 <- clean_survey_all_days %>%
   ggplot() +
   geom_bar(aes(x=mode_of_transport)) +
@@ -109,7 +109,7 @@ Comparing modes of transport, we see that public transit is the most common form
 
 Does there appear to be a relationship between arrival time and distance lived from campus? An initial plot shows us:
 
-```{r}
+``` r
 plot4 <- clean_survey_all_days %>%
   ggplot(aes(x = distance_km, y = arrival)) +
   geom_point() +
@@ -126,7 +126,7 @@ plot4
 
 It's difficult to discern from this plot so we will further explore this question in the analysis below.
 
-```{r}
+``` r
 plot5 <- clean_survey_sep_days %>%
   ggplot(aes(x = mw_arrival)) +
   geom_density(aes(fill = "salmon", color = "salmon"), alpha = .3) +
