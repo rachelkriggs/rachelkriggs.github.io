@@ -70,7 +70,7 @@ clean_survey_sep_days <- read_csv('https://raw.githubusercontent.com/UBC-MDS/sur
 
 # EDA
 
-```{r, fig.width=10}
+```{r}
 plot1 <- clean_survey_all_days %>%
   ggplot() +
   geom_histogram(aes(x=distance_km)) +
