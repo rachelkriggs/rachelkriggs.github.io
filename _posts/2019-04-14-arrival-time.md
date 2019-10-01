@@ -168,7 +168,7 @@ The analysis is broken down as follows:
   - 2.2.2 Mon & Wed - Bayesian validation
   - 2.3.1 Tues & Thurs - Frequentist approach
   - 2.3.2 Tues & Thurs - Bayesian validation
-3. Discussion of the Results
+3. Results
 
 ## 1. Without Confounders
 
@@ -648,7 +648,7 @@ fit_tt_bayes_transp %>%
 | b\_mode\_of\_transportTransit |    4.1427389|  -29.59664|  36.5537388|
 | b\_mode\_of\_transportWalking |   -2.5655778|  -37.70048|  31.9125465|
 
-# 3. Discussion of the Results
+# 3. Results
 
 From our results we can see that there is a relationship between how far someone lives from campus and their arrival time. This was found for all days overall and for the two groups of days (Mondays-Wednesdays, Tuesdays-Thursdays). Given the consistency between methods in both the estimates achieved and the confidence/credible intervals allows us to infer that there is an association between how far someone lives from campus and their time of arrival. However, when comparing the frequentist models to a null model, only the overall model did significantly better than the null model. This might be explained by [Simpson's paradox](https://en.wikipedia.org/wiki/Simpson%27s_paradox). This picture changed when including mode of transport as our confounder in the analysis. When doing this component, we observed that mode of transport does not have an effect as a confounder as our estimates did not change to be outside of the confidence/credible intervals of the first estimates. This phenomena remained both for the overall analysis and for the focused analysis in the groups of days.
 
