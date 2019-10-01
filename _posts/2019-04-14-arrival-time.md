@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Arrival time survey analysis
-tags: [r, data-science, analysis, ubc, mds]
+tags: [r, data-science, analysis, ubc, mds, frequentist, bayesian]
 ---
 
 <img src="/images/time.jpg" class="fit image">
@@ -160,7 +160,7 @@ The analysis is broken down as follows:
   - 1.2.3 Mon & Wed - Null model ANOVA test
   - 1.3.1 Tues & Thurs - Frequentist approach
   - 1.3.2 Tues & Thurs - Bayesian validation
-  - 1.3.2 Tues & Thurs - Null model ANOVA test
+  - 1.3.3 Tues & Thurs - Null model ANOVA test
 2. With Confounders
   - 2.1.1 All days - Frequentist approach
   - 2.1.2 All days - Bayesian validation
@@ -173,6 +173,7 @@ The analysis is broken down as follows:
 ## 1. Without Confounders
 
 ### 1.1 Distance and Arrival Time (All Days)
+*1.1.1 Frequentist approach*
 
 ```{r}
 # Fit the frequentist model
@@ -205,6 +206,7 @@ ggplot(clean_survey_all_days, aes(x = distance_km, y = arrival)) +
 
 <img src="/figs/2019-04-14-arrival-time/analysis_01.png" class="fit image">
 
+*1.1.2 Bayesian validation*
 ``` r
 # Fit the Bayesian model
 fit_all_bayes <- brm(arrival ~ distance_km, data = clean_survey_all_days, iter = 5000, cores = -1)
@@ -239,6 +241,7 @@ fit_all_bayes %>%
 
 <img src="/figs/2019-04-14-arrival-time/analysis_02.png" class="fit image">
 
+*1.1.3 ANOVA*
 ``` r
 # Anova
 
@@ -258,7 +261,7 @@ Under both frequentist and Bayesian approaches there is an association between d
 For every increase of 1 km lived from campus, the expected change in arrival time is early by almost 1 minute.
 
 ### 1.2 Distance and Arrival Time (Monday & Wednesday)
-
+*1.2.1 Frequentist approach*
 ``` r
 fit_mw <- lm(mw_arrival ~ distance_km, data = clean_survey_sep_days)
 
@@ -285,7 +288,7 @@ ggplot(clean_survey_sep_days, aes(x = distance_km, y = mw_arrival)) +
 ```
 
 <img src="/figs/2019-04-14-arrival-time/analysis_03.png" class="fit image">
-
+*1.2.2 Bayesian validation*
 ``` r
 fit_mw_bayes <- brm(mw_arrival ~ distance_km, data = clean_survey_sep_days, iter = 5000, cores = -1)
 ```
@@ -317,6 +320,7 @@ fit_mw_bayes %>%
 
 <img src="/figs/2019-04-14-arrival-time/analysis_04.png" class="fit image">
 
+*1.2.3 ANOVA*
 ``` r
 # Anova
 
@@ -331,10 +335,10 @@ anova(fit_null_mw, fit_mw) %>% knitr::kable()
 |      55|  37393.55|   NA|         NA|       NA|         NA|
 |      54|  34894.45|    1|   2499.108|  3.86743|  0.0543802|
 
-Under both frequentist and Bayesian approaches there is an association between distance and arrival time for Mondays and Wednesdays. For the frequentist approach the estimate is -0.87 with a confidence interval of 95% (-1.76, 0.01). For the Bayesian approach the estimate is -0.87 with credible interval of 95% (-1.75, 0.01). As we can see from our ANOVA results, our model doesn't do significantly better than a null model, meaning that there is no significant explanatory power in adding distance from campus to explain to arrival time at the lecture hall for Mondays and Wednesdays.
+Under both frequentist and Bayesian approaches there is *not* an association between distance and arrival time for Mondays and Wednesdays. For the frequentist approach the estimate is -0.87 with a confidence interval of 95% (-1.76, 0.01). For the Bayesian approach the estimate is -0.87 with credible interval of 95% (-1.75, 0.01). As we can see from our ANOVA results, our model doesn't do significantly better than a null model, meaning that there is no significant explanatory power in adding distance from campus to explain to arrival time at the lecture hall for Mondays and Wednesdays.
 
 ### 1.3 Distance and Arrival Time (Tuesday & Thursday)
-
+*1.3.1 Frequentist approach*
 ``` r
 fit_tt <- lm(tt_arrival ~ distance_km, data = clean_survey_sep_days)
 
@@ -362,6 +366,7 @@ ggplot(clean_survey_sep_days, aes(x = distance_km, y = tt_arrival)) +
 
 <img src="/figs/2019-04-14-arrival-time/analysis_05.png" class="fit image">
 
+*1.3.2 Bayesian validation*
 ``` r
 fit_tt_bayes <- brm(tt_arrival ~ distance_km, data = clean_survey_sep_days, iter = 5000, cores = -1)
 ```
@@ -393,6 +398,7 @@ fit_tt_bayes %>%
 
 <img src="/figs/2019-04-14-arrival-time/analysis_06.png" class="fit image">
 
+*1.3.3 ANOVA*
 ``` r
 # Anova
 
@@ -412,7 +418,7 @@ Under both frequentist and Bayesian approaches there is *not* an association bet
 ## 2. With Confounders
 
 ### 2.1 Distance and Arrival Time (All Days)
-
+*2.1.1 Frequentist approach*
 ``` r
 fit_all_transp <- lm(arrival ~ distance_km + mode_of_transport, data = clean_survey_all_days)
 ```
@@ -431,6 +437,7 @@ ggplot(clean_survey_all_days, aes(x = distance_km, y = arrival)) +
 
 <img src="/figs/2019-04-14-arrival-time/analysis_07.png" class="fit image">
 
+*2.1.2 Bayesian validation*
 ``` r
 fit_all_bayes_transp <- brm(arrival ~ distance_km + mode_of_transport, data = clean_survey_all_days, iter = 5000, cores = -1)
 ```
@@ -487,7 +494,7 @@ fit_all_bayes_transp  %>%
 | b\_mode\_of\_transportWalking |   -1.0413373|  -23.098937|  21.2279271|
 
 ### 2.2 Distance and Arrival Time (Monday & Wednesday)
-
+*2.2.1 Frequentist approach*
 ``` r
 fit_mw_transp <- lm(mw_arrival ~ distance_km + mode_of_transport, data = clean_survey_sep_days)
 ```
@@ -506,6 +513,7 @@ ggplot(clean_survey_sep_days, aes(x = distance_km, y = mw_arrival)) +
 
 <img src="/figs/2019-04-14-arrival-time/analysis_09.png" class="fit image">
 
+*2.2.2 Bayesian validation*
 ``` r
 fit_mw_bayes_transp <- brm(mw_arrival ~ distance_km + mode_of_transport, data = clean_survey_sep_days, iter = 5000, cores = -1)
 ```
@@ -579,7 +587,7 @@ fit_mw_bayes_transp %>%
 | b\_mode\_of\_transportWalking |   0.0414775|  -28.709157|  29.7268700|    0.95| median | qi        |
 
 ### 2.3 Distance and Arrival Time (Tuesday & Thursday)
-
+*2.3.1 Frequentist approach*
 ``` r
 fit_tt_transp <- lm(tt_arrival ~ distance_km + mode_of_transport, data = clean_survey_sep_days)
 ```
@@ -598,6 +606,7 @@ ggplot(clean_survey_sep_days, aes(x = distance_km, y = tt_arrival)) +
 
 <img src="/figs/2019-04-14-arrival-time/analysis_11.png" class="fit image">
 
+*2.3.2 Bayesian validation*
 ``` r
 fit_tt_bayes_transp <- brm(tt_arrival ~ distance_km + mode_of_transport, data = clean_survey_sep_days, iter = 5000, cores = -1)
 ```
