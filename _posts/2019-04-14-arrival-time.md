@@ -22,7 +22,7 @@ Our survey targeted MDS students specifically and their distance from our lectur
 
 We asked our survey respondents to answer the following questions:
 
-- How far from Hugh Dempster do you live in kilometers via the mode of transport you use(a google maps link was provided to help with the distance estimation)?
+- How far from Hugh Dempster do you live in kilometers via the mode of transport you use (a google maps link was provided to help with the distance estimation)?
 
 - What time do you typically arrive at Hugh Dempster on Mondays and Wednesdays?
 
