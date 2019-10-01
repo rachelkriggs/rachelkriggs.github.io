@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Chocolate Bar Ratings Analysis
+title: Chocolate bar ratings analysis
 tags: [r, rstudio, make, docker, data-science, analysis]
 ---
 
