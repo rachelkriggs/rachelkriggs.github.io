@@ -12,7 +12,7 @@ One of the courses in the sixth and final block of [coursework](https://ubc-mds.
 
 **How does a student's distance from campus influence arrival time to lectures?**
 
-We conducted an observational study to explore if there is a relationship between the distance lived from class and arrival time. We also wanted to test a potential confounder for this relationship which is the mode of transportation a student takes to class.
+We conducted an observational study to explore if there is a relationship between the distance lived from class and arrival time. We also wanted to test a potential [confounder](https://en.wikipedia.org/wiki/Confounding) for this relationship which is the mode of transportation a student takes to class.
 
 Our survey targeted MDS students specifically and their distance from our lecture hall, [Hugh Dempster Pavilion at UBC](https://www.google.com/maps/place/Hugh+Dempster+Pavilion,+6245+Agronomy+Rd,+Vancouver,+BC+V6T+1Z4/@49.2612456,-123.2502266,17z/data=!3m1!4b1!4m5!3m4!1s0x548672cbd82e5c6d:0x513dd2aa8d9fe76!8m2!3d49.2612456!4d-123.2480379).
 
