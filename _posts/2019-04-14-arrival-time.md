@@ -413,7 +413,7 @@ anova(fit_null_tt, fit_tt) %>% knitr::kable()
 |      55|  55077.71|   NA|         NA|        NA|         NA|
 |      54|  51695.30|    1|   3382.416|  3.533212|  0.0655509|
 
-Under both frequentist and Bayesian approaches there is *not* an association between distance and arrival time for Tuesdays and Thursdays. For the frequentist approach the estimate is -1.02 with a confidence interval of 95% (-2.1, 0.0677). For the Bayesian approach the estimate is -1.02 with credible interval of 95% (-2.05, 0.02). As we can see from our ANOVA results, our model doesn't do significantly better than a null model, meaning that there is no significant explanatory power in adding distance from campus to explain to arrival time at the lecture hall for Tuesdays and Thursdays.
+Under both frequentist and Bayesian approaches there is *not* an association between distance and arrival time for Tuesdays and Thursdays. For the frequentist approach the estimate is -1.02 with a confidence interval of 95% (-2.1, 0.0677). For the Bayesian approach the estimate is -1.02 with credible interval of 95% (-2.05, 0.02). As we can see from our ANOVA results, our model does not do significantly better than a null model, meaning that there is no significant explanatory power in adding distance from campus to explain to arrival time at the lecture hall for Tuesdays and Thursdays.
 
 ## 2. With Confounders
 
@@ -522,22 +522,6 @@ fit_mw_bayes_transp <- brm(mw_arrival ~ distance_km + mode_of_transport, data = 
 fit_mw_bayes_transp %>%
     gather_draws(b_Intercept, b_distance_km, b_mode_of_transportDriving,
                  b_mode_of_transportTransit, b_mode_of_transportWalking) %>%
-    median_qi() %>%
-    kable()
-```
-
-| .variable                     |      .value|      .lower|      .upper|  .width| .point | .interval |
-|:------------------------------|-----------:|-----------:|-----------:|-------:|:-------|:----------|
-| b\_distance\_km               |  -0.6933251|   -1.869871|   0.5048074|    0.95| median | qi        |
-| b\_Intercept                  |   7.4879088|  -19.518949|  34.8866899|    0.95| median | qi        |
-| b\_mode\_of\_transportDriving |  -7.2091221|  -42.006823|  27.1526442|    0.95| median | qi        |
-| b\_mode\_of\_transportTransit |  -1.8593489|  -30.316003|  26.3299303|    0.95| median | qi        |
-| b\_mode\_of\_transportWalking |   0.4209510|  -29.496710|  30.1349836|    0.95| median | qi        |
-
-``` r
-fit_mw_bayes_transp %>%
-    gather_draws(b_Intercept, b_distance_km, b_mode_of_transportDriving,
-                 b_mode_of_transportTransit, b_mode_of_transportWalking) %>%
     ggplot(aes(.value)) +
     geom_density() +
     facet_wrap(~ .variable, scales = 'free') +
@@ -575,16 +559,17 @@ fit_mw_bayes_transp %>%
     gather_draws(b_Intercept, b_distance_km, b_mode_of_transportDriving,
                  b_mode_of_transportTransit, b_mode_of_transportWalking) %>%
     median_qi() %>%
+    select(.variable, .value, .lower, .upper) %>%
     kable()
 ```
 
-| .variable                     |      .value|      .lower|      .upper|  .width| .point | .interval |
-|:------------------------------|-----------:|-----------:|-----------:|-------:|:-------|:----------|
-| b\_distance\_km               |  -0.6813593|   -1.865392|   0.4916241|    0.95| median | qi        |
-| b\_Intercept                  |   7.8496529|  -19.095773|  34.5034738|    0.95| median | qi        |
-| b\_mode\_of\_transportDriving |  -7.9289231|  -42.256181|  27.0616609|    0.95| median | qi        |
-| b\_mode\_of\_transportTransit |  -2.5916423|  -30.811485|  25.9093391|    0.95| median | qi        |
-| b\_mode\_of\_transportWalking |   0.0414775|  -28.709157|  29.7268700|    0.95| median | qi        |
+| .variable                     |      .value|      .lower|      .upper|  
+|:------------------------------|-----------:|-----------:|-----------:|
+| b\_distance\_km               |  -0.6813593|   -1.865392|   0.4916241|
+| b\_Intercept                  |   7.8496529|  -19.095773|  34.5034738|
+| b\_mode\_of\_transportDriving |  -7.9289231|  -42.256181|  27.0616609|
+| b\_mode\_of\_transportTransit |  -2.5916423|  -30.811485|  25.9093391|
+| b\_mode\_of\_transportWalking |   0.0414775|  -28.709157|  29.7268700|
 
 ### 2.3 Distance and Arrival Time (Tuesday & Thursday)
 *2.3.1 Frequentist approach*
@@ -651,16 +636,17 @@ fit_tt_bayes_transp %>%
     gather_draws(b_Intercept, b_distance_km, b_mode_of_transportDriving,
                  b_mode_of_transportTransit, b_mode_of_transportWalking) %>%
     median_qi() %>%
+    select(.variable, .value, .lower, .upper) %>%
     kable()
 ```
 
-| .variable                     |       .value|     .lower|      .upper|  .width| .point | .interval |
-|:------------------------------|------------:|----------:|-----------:|-------:|:-------|:----------|
-| b\_distance\_km               |   -0.9286238|   -2.33724|   0.4455929|    0.95| median | qi        |
-| b\_Intercept                  |    6.7594665|  -24.23578|  39.2244426|    0.95| median | qi        |
-| b\_mode\_of\_transportDriving |  -15.1856723|  -55.73532|  25.5966720|    0.95| median | qi        |
-| b\_mode\_of\_transportTransit |    4.1427389|  -29.59664|  36.5537388|    0.95| median | qi        |
-| b\_mode\_of\_transportWalking |   -2.5655778|  -37.70048|  31.9125465|    0.95| median | qi        |
+| .variable                     |       .value|     .lower|      .upper|
+|:------------------------------|------------:|----------:|-----------:|
+| b\_distance\_km               |   -0.9286238|   -2.33724|   0.4455929|
+| b\_Intercept                  |    6.7594665|  -24.23578|  39.2244426|
+| b\_mode\_of\_transportDriving |  -15.1856723|  -55.73532|  25.5966720|
+| b\_mode\_of\_transportTransit |    4.1427389|  -29.59664|  36.5537388|
+| b\_mode\_of\_transportWalking |   -2.5655778|  -37.70048|  31.9125465|
 
 # 3. Discussion of the Results
 
@@ -670,6 +656,6 @@ From our results we can see that there is a relationship between how far someone
 
 ------------------------------
 
-_Collaborators on this project include myself, [Ian Flores Siaca](https://ian-flores.github.io), [Akansha Vashisth](https://github.com/akanshaVashisth), and [Milos Milic](https://github.com/milicmil)._
+_Collaborators on this project include myself, [Ian Flores Siaca](https://ian-flores.github.io), [Akansha Vashisth](https://akanshavashisth.github.io), and [Milos Milic](https://github.com/milicmil)._
 
 _Photo by [Andrik Langfield](https://unsplash.com/@andriklangfield?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/)_
