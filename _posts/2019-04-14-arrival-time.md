@@ -63,9 +63,9 @@ library(gridExtra)
 
 ## Load the data
 
-```{r}
-clean_survey_all_days <- read_csv('https://raw.githubusercontent.com/UBC-MDS/survey_arrival_time/master/data/clean_survey_responses_all_days.csv')
-clean_survey_sep_days <- read_csv('https://raw.githubusercontent.com/UBC-MDS/survey_arrival_time/master/data/clean_survey_responses_sep_days.csv')
+``` r
+clean_survey_all_days <- read_csv('https://raw.githubusercontent.com/rachelkriggs/rachelkriggs.github.io/master/data/arrival-time/clean_survey_responses_all_days.csv')
+clean_survey_sep_days <- read_csv('https://raw.githubusercontent.com/rachelkriggs/rachelkriggs.github.io/master/data/arrival-time/clean_survey_responses_sep_days.csv')
 ```
 
 # EDA
