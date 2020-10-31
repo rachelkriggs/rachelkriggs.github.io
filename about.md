@@ -4,7 +4,11 @@ title: About me
 permalink: /about/
 ---
 
-I recently completed a [Masters Degree in Data Science](https://masterdatascience.science.ubc.ca/) at the University of British Columbia. I'm seeking to combine my technical expertise and communication skills with my enthusiasm for math, statistics, and computer science. I'm a creative problem solver with 15 years of experience in the field of motion graphics and have a BFA in Computer Graphics. I'm passionate about politics, the environment, fitness, cooking, travel, and my two weird cats. I'm excited to merge my previous business experience with my new data science skillset.
+I'm a Data Scientist at [Biba Ventures](https://www.playbiba.com/), a startup that makes an app for families with the goal of encouraging kids to get more physical activity. I manage the data science team, analyze playground and game data, and build models to estimate playground attendance. I am also an alumna of the University of British Columbia's [Master of Data Science](https://masterdatascience.ubc.ca/) program.
+
+Before pivoting into data science, my experience was in the creative field of motion graphics. When I finished high school I received both the art award and the math award, which at the time seemed like an anomaly for one individual, but now feels justified. With this non-traditional background, I bring a unique perspective to the field of data science.
+
+I’m passionate about politics, fitness, the environment, cooking, travel, and my two weird cats.
 
 
 ### Contact me
